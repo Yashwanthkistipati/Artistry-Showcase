@@ -1,0 +1,21 @@
+<h2>☆꧁Sunsets are proof that no matter what happens, every day can end beautifully꧂☆</h2>
+<div class="gallery">
+  <div class="image-container" *ngFor="let sunset of sunsets">
+    <img [src]="sunset.src" [alt]="sunset.alt" />
+    <div class="like-section">
+      <div class="like-symbol" (click)="toggleLike(sunset)">
+        <span [class.liked]="sunset.liked">&#x2764;</span> 
+      </div>
+      <div class="like-count">
+        {{ sunset.likeCount }} Likes
+      </div>
+    </div>
+    <div class="comment-section">
+      <input type="text" [(ngModel)]="sunset.comment" placeholder="Leave a comment..." />
+      <button (click)="addComment(sunset)">Submit</button>
+      <div class="comments-display">
+        <p *ngFor="let comment of sunset.comments">{{ comment }}</p>
+      </div>
+    </div>
+  </div>
+</div>

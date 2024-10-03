@@ -1,0 +1,21 @@
+<h2>☆꧁𝕰𝖝𝖕𝖊𝖗𝖎𝖊𝖓𝖈𝖊 𝖙𝖍𝖊 𝕾𝖊𝖗𝖊𝖓𝖎𝖙𝖞 𝖔𝖋 𝕹𝖆𝖙𝖚𝖗𝖊 𝕿𝖍𝖗𝖔𝖚𝖌𝖍 𝕾𝖙𝖚𝖓𝖓𝖎𝖓𝖌 𝕻𝖍𝖔𝖙𝖔𝖌𝖗𝖆𝖕𝖍𝖞꧂☆</h2>
+<div class="gallery">
+  <div class="image-container" *ngFor="let image of images">
+    <img [src]="image.src" [alt]="image.alt" class="nature-pic-image" />
+    <div class="like-section">
+      <div class="like-symbol" (click)="toggleLike(image)">
+        <span [class.liked]="image.liked">&#x2764;</span>
+      </div>
+      <div class="like-count">
+        {{ image.likeCount }} Likes
+      </div>
+    </div>
+    <div class="comment-section">
+      <input type="text" [(ngModel)]="image.comment" placeholder="Leave a comment..." />
+      <button (click)="addComment(image)">Submit</button>
+      <div class="comments-display">
+        <p *ngFor="let comment of image.comments">{{ comment }}</p>
+      </div>
+    </div>
+  </div>
+</div>
